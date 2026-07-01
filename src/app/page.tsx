@@ -11,6 +11,10 @@ export default function Home() {
       <Link href="/programs?locale=es">
         <br />  <code>Spanish</code>
       </Link>
+      <br />
+      <Link href="/submission">
+        <code>Read Submission</code>
+      </Link>
     </main>
   );
 }
