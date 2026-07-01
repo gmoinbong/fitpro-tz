@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getProgramsByLocale } from '@/entities/program';
+import { getProgramsByLocale } from '@/entities/program/server';
 import { authenticateRequest, resolveLocale } from '@/shared/lib';
 
 export async function GET(req: NextRequest) {

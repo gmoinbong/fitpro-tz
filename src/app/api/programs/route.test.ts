@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET } from './route';
 
-vi.mock('@/entities/program', () => ({
+vi.mock('@/entities/program/server', () => ({
   getProgramsByLocale: vi.fn().mockResolvedValue([{ id: 1, title: 'Test' }]),
 }));
 
