@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getPrograms } from '@/entities/program/api';
-import { parseLocale, requireAuth } from '@/shared/lib';
+import { parseLocale, requireAuth, unauthorizedResponse } from '@/shared/lib';
 
 export async function GET(req: NextRequest) {
-  const authResult = await requireAuth(req);
-  if (authResult instanceof NextResponse) {
-    return authResult;
+  const user = await requireAuth(req);
+  if (!user) {
+    return unauthorizedResponse();
   }
 
   try {
