@@ -1,4 +1,4 @@
-import type { CmsProgram } from '@/entities/program/lib/cms-sdk';
+import type { CmsProgram } from './cms-types';
 import type { Program } from '@/entities/program/model';
 
 export function mapProgramsFromCms(rows: CmsProgram[]): Program[] {

@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs/promises';
 import { clearProgramCache, FRESH_TTL_MS, setCachedPrograms } from './cache';
-import { fetchProgramsFromCms } from './cms-sdk';
+import { fetchProgramsFromCms } from './cms-mock';
 import { clearInflight } from './inflight';
 import { getProgramsByLocale } from './load-programs';
 import type { Program } from '@/entities/program/model';
 
-vi.mock('./cms-sdk', () => ({
+vi.mock('./cms-mock', () => ({
   fetchProgramsFromCms: vi.fn(),
 }));
 

@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import type { CmsProgram } from './cms-sdk';
+import type { CmsProgram } from './cms-types';
 import { mapProgramsFromCms } from './mapper';
 import type { Program } from '@/entities/program/model';
 import type { SupportedLocale } from '@/shared/lib';

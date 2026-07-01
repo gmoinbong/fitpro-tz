@@ -14,11 +14,8 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import {
-  fetchProgramsFromCms,
-  type CmsProgram,
-  type CmsProgramDay,
-} from '@/entities/program/lib/cms-sdk';
+import { fetchProgramsFromCms } from '@/entities/program/lib/cms-mock';
+import type { CmsProgram, CmsProgramDay } from '@/entities/program/lib/cms-types';
 import type { Program, ProgramDay } from '@/entities/program/model';
 
 interface CacheEntry {

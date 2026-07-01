@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mapProgramsFromCms } from './mapper';
-import type { CmsProgram } from './cms-sdk';
+import type { CmsProgram } from './cms-types';
 
 const sampleCmsProgram: CmsProgram = {
   id: 1,

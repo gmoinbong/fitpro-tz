@@ -1,27 +1,10 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-export interface CmsProgram {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  days_count: number;
-  enrolled_count: number;
-  cover_image_url: string;
-  days: CmsProgramDay[];
-}
-
-export interface CmsProgramDay {
-  day_number: number;
-  title: string;
-  video_url: string;
-  exercise_description: string;
-  coach_tip: string;
-}
+import type { CmsProgram } from './cms-types';
 
 export async function fetchProgramsFromCms(
-  locale: string = 'en'
+  locale: string = 'en',
 ): Promise<CmsProgram[]> {
   await new Promise((resolve) => setTimeout(resolve, 200 + Math.random() * 300));
 
@@ -29,12 +12,7 @@ export async function fetchProgramsFromCms(
     throw new Error('CMS unavailable (simulated downtime)');
   }
 
-  const filePath = path.join(
-    process.cwd(),
-    'src',
-    'data',
-    `programs-${locale}.json`
-  );
+  const filePath = path.join(process.cwd(), 'src', 'data', `programs-${locale}.json`);
 
   try {
     const raw = await fs.readFile(filePath, 'utf-8');
