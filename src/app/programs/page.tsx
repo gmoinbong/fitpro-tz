@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { cookies } from 'next/headers';
 import { ProgramCatalog, ProgramsResponse } from '@/entities/program';
 import { EmptyState, ErrorMessage } from '@/shared/ui';
 import { getServerAuthToken, PAGE_STYLE, resolveLocale } from '@/shared/lib';
+import { AuthTokenTestControls } from './auth-token-test-controls';
 
 type PageProps = {
   searchParams: {
@@ -11,15 +13,19 @@ type PageProps = {
 
 export default async function ProgramsPage({ searchParams }: PageProps) {
   const locale = resolveLocale(searchParams.locale);
+  const testToken = cookies().get('fitplan_auth_token')?.value;
+  const headers: Record<string, string> =
+    testToken !== undefined
+      ? testToken === ''
+        ? {}
+        : { Authorization: `Bearer ${testToken}` }
+      : { Authorization: `Bearer ${getServerAuthToken()}` };
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/programs?locale=${locale}`,
     {
       cache: 'no-store',
-      headers: { Authorization:
-        //  `        Bearer ${getServerAuthToken()}`
-       
-      },
+      headers,
     },
   );
 
@@ -35,6 +41,7 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
 
     return (
       <main style={PAGE_STYLE}>
+        <AuthTokenTestControls />
         <h1 style={{ margin: '0 0 16px', fontSize: 28 }}>Programs</h1>
         <ErrorMessage message={message} />
       </main>
@@ -43,6 +50,8 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
 
   return (
     <main style={PAGE_STYLE}>
+      <AuthTokenTestControls />
+
       <Link href="/" style={{ fontSize: 14, color: '#2563eb', textDecoration: 'none' }}>
         ← Home
       </Link>
