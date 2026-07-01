@@ -1,5 +1,6 @@
 export * from './model';
 export { fetchPrograms } from './api/programs-api';
+export { getProgramsByLocale } from './lib/load-programs';
 export { filterPrograms, PROGRAM_CATEGORIES } from './lib/filter-programs';
 export type { ProgramCategory } from './lib/filter-programs';
 export {
