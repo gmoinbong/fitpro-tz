@@ -38,29 +38,7 @@ export async function fetchProgramsFromCms(
 
   try {
     const raw = await fs.readFile(filePath, 'utf-8');
-    const programs: CmsProgram[] = JSON.parse(raw);
-
-    return programs.map((program) => ({
-      id: program.id,
-      title: program.title,
-      description: program.description,
-      category: program.category,
-      days_count: program.days_count ?? (program as { daysCount?: number }).daysCount ?? 0,
-      enrolled_count:
-        program.enrolled_count ?? (program as { enrolledCount?: number }).enrolledCount ?? 0,
-      cover_image_url:
-        program.cover_image_url ?? (program as { coverImageUrl?: string }).coverImageUrl ?? '',
-      days: (program.days ?? []).map((day) => ({
-        day_number: day.day_number ?? (day as { dayNumber?: number }).dayNumber ?? 0,
-        title: day.title,
-        video_url: day.video_url ?? (day as { videoUrl?: string }).videoUrl ?? '',
-        exercise_description:
-          day.exercise_description ??
-          (day as { exerciseDescription?: string }).exerciseDescription ??
-          '',
-        coach_tip: day.coach_tip ?? (day as { coachTip?: string }).coachTip ?? '',
-      })),
-    }));
+    return JSON.parse(raw) as CmsProgram[];
   } catch {
     throw new Error(`CMS: locale "${locale}" not found`);
   }

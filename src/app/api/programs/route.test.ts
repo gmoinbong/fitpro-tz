@@ -2,8 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET } from './route';
 
-vi.mock('@/entities/program/api', () => ({
-  getPrograms: vi.fn().mockResolvedValue([{ id: 1, title: 'Test' }]),
+vi.mock('@/entities/program', () => ({
+  getProgramsByLocale: vi.fn().mockResolvedValue([{ id: 1, title: 'Test' }]),
 }));
 
 function makeRequest(url: string, headers?: Record<string, string>): NextRequest {
@@ -14,6 +14,9 @@ describe('GET /api/programs', () => {
   it('returns 401 without Authorization header', async () => {
     const response = await GET(makeRequest('/api/programs'));
     expect(response.status).toBe(401);
+
+    const body = await response.json();
+    expect(body).toEqual({ ok: false, error: 'Unauthorized' });
   });
 
   it('returns 401 with invalid token', async () => {
@@ -30,7 +33,9 @@ describe('GET /api/programs', () => {
     expect(response.status).toBe(200);
 
     const body = await response.json();
-    expect(Array.isArray(body)).toBe(true);
-    expect(body[0].title).toBe('Test');
+    expect(body).toEqual({
+      ok: true,
+      programs: [{ id: 1, title: 'Test' }],
+    });
   });
 });

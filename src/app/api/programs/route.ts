@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPrograms } from '@/entities/program/api';
-import { parseLocale, requireAuthFromRequest, unauthorizedResponse } from '@/shared/lib';
+import { getProgramsByLocale } from '@/entities/program/lib/load-programs';
+import { parseRequestLocale } from '@/app/api/_lib/parse-request-locale';
+import { requireAuthFromRequest, unauthorizedResponse } from '@/app/api/_lib/require-auth';
 
 export async function GET(req: NextRequest) {
   const user = await requireAuthFromRequest(req);
@@ -9,10 +10,13 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const programs = await getPrograms(parseLocale(req));
-    return NextResponse.json(programs);
+    const programs = await getProgramsByLocale(parseRequestLocale(req));
+    return NextResponse.json({ ok: true, programs });
   } catch (error) {
     console.error('[GET /api/programs]', error);
-    return NextResponse.json({ error: 'Failed to load programs' }, { status: 503 });
+    return NextResponse.json(
+      { ok: false, error: 'Failed to load programs' },
+      { status: 503 },
+    );
   }
 }
