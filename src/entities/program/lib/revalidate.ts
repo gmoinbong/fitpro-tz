@@ -9,7 +9,8 @@ export function revalidate(locale: SupportedLocale): void {
       const programs = await loadFromCms(locale);
       setCachedPrograms(locale, programs);
       return programs;
-    } catch {
+    } catch (err) {
+      console.warn(`[revalidate] CMS failed for locale "${locale}":`, (err as Error).message);
       return [];
     }
   });

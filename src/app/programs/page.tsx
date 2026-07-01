@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { cookies } from 'next/headers';
-import { ProgramCatalog, ProgramsResponse } from '@/entities/program';
+import { fetchPrograms, ProgramCatalog } from '@/entities/program';
 import { EmptyState, ErrorMessage } from '@/shared/ui';
 import { getServerAuthToken, PAGE_STYLE, resolveLocale } from '@/shared/lib';
 import { AuthTokenTestControls } from './auth-token-test-controls';
@@ -21,29 +21,14 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
         : { Authorization: `Bearer ${testToken}` }
       : { Authorization: `Bearer ${getServerAuthToken()}` };
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/programs?locale=${locale}`,
-    {
-      cache: 'no-store',
-      headers,
-    },
-  );
+  const result = await fetchPrograms(locale, headers);
 
-  const result = (await res.json()) as ProgramsResponse;
-
-  if (!res.ok || !result.ok) {
-    const message =
-      res.status === 401
-        ? 'Unauthorized. Check your auth token.'
-        : 'error' in result
-          ? result.error
-          : 'Failed to load programs';
-
+  if (!result.ok) {
     return (
       <main style={PAGE_STYLE}>
         <AuthTokenTestControls />
         <h1 style={{ margin: '0 0 16px', fontSize: 28 }}>Programs</h1>
-        <ErrorMessage message={message} />
+        <ErrorMessage message={result.error} />
       </main>
     );
   }
@@ -60,10 +45,10 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
         Browse workout programs and track your progress.
       </p>
 
-      {result.programs.length === 0 ? (
+      {result.data.length === 0 ? (
         <EmptyState message="No programs available." />
       ) : (
-        <ProgramCatalog programs={result.programs} />
+        <ProgramCatalog programs={result.data} />
       )}
     </main>
   );
