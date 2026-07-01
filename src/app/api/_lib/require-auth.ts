@@ -1,5 +1,5 @@
-import { NextRequest } from 'next/server';
-import { validateAuthToken, type AuthUser } from './firebase-auth';
+import type { NextRequest } from 'next/server';
+import { validateAuthToken, type AuthUser } from '@/shared/lib/firebase-auth';
 
 export function requireAuthFromRequest(
   req: NextRequest | Request,
@@ -9,7 +9,7 @@ export function requireAuthFromRequest(
 
 export function unauthorizedResponse() {
   return Response.json(
-    { error: 'Unauthorized' },
+    { ok: false, error: 'Unauthorized' },
     { status: 401 },
   );
 }
