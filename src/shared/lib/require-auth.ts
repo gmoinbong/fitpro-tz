@@ -1,10 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import { validateAuthToken, type AuthUser } from './firebase-auth';
 
-export async function requireAuth(req: NextRequest): Promise<AuthUser | null> {
-  return validateAuthToken(req.headers.get('Authorization'));
+export function requireAuthFromRequest(
+  req: NextRequest | Request,
+): Promise<AuthUser | null> {
+  return validateAuthToken(req.headers.get('authorization'));
 }
 
-export function unauthorizedResponse(): NextResponse {
-  return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+export function unauthorizedResponse() {
+  return Response.json(
+    { error: 'Unauthorized' },
+    { status: 401 },
+  );
 }
