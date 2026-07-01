@@ -1,10 +1,17 @@
-// Task 1: Implement this endpoint.
-// See README.md for requirements.
-
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { getPrograms } from '@/entities/program/api';
+import { parseLocale, requireAuth } from '@/shared/lib';
 
 export async function GET(req: NextRequest) {
-  return new Response(JSON.stringify({ todo: 'Implement Task 1' }), {
-    status: 501,
-  });
+  const authResult = await requireAuth(req);
+  if (authResult instanceof NextResponse) {
+    return authResult;
+  }
+
+  try {
+    const programs = await getPrograms(parseLocale(req));
+    return NextResponse.json(programs);
+  } catch {
+    return NextResponse.json({ error: 'Failed to load programs' }, { status: 503 });
+  }
 }

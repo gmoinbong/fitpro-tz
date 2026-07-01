@@ -1,11 +1,35 @@
-// Task 2: Implement this page.
-// See README.md for requirements.
+import { headers } from 'next/headers';
+import { resolveLocale, validateAuthToken } from '@/shared/lib';
+import { getPrograms } from '@/entities/program/api';
 
-export default function ProgramsPage() {
+type PageProps = {
+  searchParams: {
+    locale?: string;
+  };
+};
+
+export default async function ProgramsPage({ searchParams }: PageProps) {
+  const locale = resolveLocale(searchParams.locale);
+  const authHeader = (await headers()).get('authorization');
+  const user = await validateAuthToken(authHeader);
+
+  if (!user || !authHeader) {
+    return (
+      <main>
+        <p>Please sign in.</p>
+      </main>
+    );
+  }
+
+  const programs = await getPrograms({ locale, auth: authHeader });
+
   return (
-    <main style={{ maxWidth: 960, margin: '40px auto', padding: '0 20px' }}>
-      <h1>Programs</h1>
-      <p>Implement the program catalog UI here (Task 2).</p>
+    <main>
+      <ul>
+        {programs.map((program) => (
+          <li key={program.id}>{program.title}</li>
+        ))}
+      </ul>
     </main>
   );
 }
