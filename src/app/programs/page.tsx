@@ -1,5 +1,4 @@
-import { headers } from 'next/headers';
-import { resolveLocale, validateAuthToken } from '@/shared/lib';
+import { resolveLocale } from '@/shared/lib';
 import { getPrograms } from '@/entities/program/api';
 
 type PageProps = {
@@ -10,18 +9,7 @@ type PageProps = {
 
 export default async function ProgramsPage({ searchParams }: PageProps) {
   const locale = resolveLocale(searchParams.locale);
-  const authHeader = (await headers()).get('authorization');
-  const user = await validateAuthToken(authHeader);
-
-  if (!user || !authHeader) {
-    return (
-      <main>
-        <p>Please sign in.</p>
-      </main>
-    );
-  }
-
-  const programs = await getPrograms({ locale, auth: authHeader });
+  const programs = await getPrograms(locale);
 
   return (
     <main>
