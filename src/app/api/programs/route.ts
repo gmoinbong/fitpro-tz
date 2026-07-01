@@ -11,7 +11,8 @@ export async function GET(req: NextRequest) {
   try {
     const programs = await getPrograms(parseLocale(req));
     return NextResponse.json(programs);
-  } catch {
+  } catch (error) {
+    console.error('[GET /api/programs]', error);
     return NextResponse.json({ error: 'Failed to load programs' }, { status: 503 });
   }
 }
