@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "title": "Fundamentos de Fuerza en 30 Dias",
+    "description": "Construye una base solida de fuerza con sobrecarga progresiva. Perfecto para principiantes avanzando a nivel intermedio.",
+    "category": "Strength",
+    "days_count": 5,
+    "enrolled_count": 890,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Evalua Tu Punto de Partida",
+        "video_url": "",
+        "exercise_description": "Hoy estableceras tu linea base. Realiza cada movimiento solo con peso corporal: sentadillas, flexiones, zancadas y planchas. Registra tus repeticiones maximas.",
+        "coach_tip": "No infles tu ego el primer dia. Numeros honestos hoy significan ganancias visibles en la semana cuatro."
+      },
+      {
+        "day_number": 2,
+        "title": "Mecanica de Sentadilla",
+        "video_url": "",
+        "exercise_description": "Enfocate completamente en la forma de sentadilla. Pies al ancho de hombros, puntas ligeramente hacia afuera. Desciende hasta que los muslos esten paralelos. 5 series de 8.",
+        "coach_tip": "Filma tu ultima serie desde el lado. Compara con la demostracion."
+      },
+      {
+        "day_number": 3,
+        "title": "Empuje de Tren Superior",
+        "video_url": "",
+        "exercise_description": "Variaciones de flexiones progresando de rodillas a completas a declinadas. Press de hombros con mancuernas. 4 series de 10 para cada movimiento.",
+        "coach_tip": "Si puedes hacer mas de 12 repeticiones facilmente, aumenta la resistencia."
+      },
+      {
+        "day_number": 4,
+        "title": "Patrones de Bisagra y Traccion",
+        "video_url": "",
+        "exercise_description": "Peso muerto rumano, remo inclinado y face pulls. 4 series de 8 con excentricas lentas.",
+        "coach_tip": "Piensa en apretar tus escapulas en cada traccion."
+      },
+      {
+        "day_number": 5,
+        "title": "Core y Estabilidad",
+        "video_url": "",
+        "exercise_description": "Dead bugs, pallof press, farmer's carries y hollow holds. 3 series cada uno, 30-45 segundos por serie.",
+        "coach_tip": "Si tu espalda baja se arquea durante los dead bugs, has ido demasiado lejos."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cardio Matutino Energizante",
+    "description": "Despierta con sesiones de 20 minutos de alta energia disenadas para antes del trabajo.",
+    "category": "Cardio",
+    "days_count": 5,
+    "enrolled_count": 1560,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Intervalos de Jumping Jacks",
+        "video_url": "",
+        "exercise_description": "Alterna 40 segundos de jumping jacks con 20 segundos de descanso. 10 rondas.",
+        "coach_tip": "Aterriza suavemente sobre las puntas de los pies."
+      },
+      {
+        "day_number": 2,
+        "title": "Escalera de Burpees",
+        "video_url": "",
+        "exercise_description": "1 burpee, descansa 10 segundos. 2 burpees, descansa 10 segundos. Continua hasta 10, luego regresa a 1. Total: 100 burpees.",
+        "coach_tip": "Si los burpees completos son demasiado, da un paso atras en lugar de saltar."
+      },
+      {
+        "day_number": 3,
+        "title": "Boxeo de Sombra",
+        "video_url": "",
+        "exercise_description": "Rondas de 3 minutos de boxeo de sombra con 1 minuto de descanso. Jab, cross, gancho, uppercut. 5 rondas.",
+        "coach_tip": "Rota las caderas con cada golpe — ahi es donde esta la potencia."
+      },
+      {
+        "day_number": 4,
+        "title": "Rodillas Altas y Mountain Climbers",
+        "video_url": "",
+        "exercise_description": "30 segundos rodillas altas, 30 segundos mountain climbers, 30 segundos descanso. 8 rondas.",
+        "coach_tip": "Bombea los brazos durante las rodillas altas — obliga a las piernas a moverse mas rapido."
+      },
+      {
+        "day_number": 5,
+        "title": "Tabata Clasico",
+        "video_url": "",
+        "exercise_description": "20 segundos esfuerzo maximo, 10 segundos descanso, 8 rondas. Ejercicio: sentadillas con salto.",
+        "coach_tip": "El Tabata verdadero debe dejarte en el suelo. Si puedes hablar durante los intervalos, no vas lo suficientemente fuerte."
+      }
+    ]
+  }
+]

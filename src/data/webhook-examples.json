@@ -1,0 +1,80 @@
+{
+  "description": "Example webhook payloads from the payment provider. Use these to test your implementation.",
+  "signatureSecret": "whsec_test_secret_key_123",
+  "signatureAlgorithm": "HMAC-SHA256 of the raw JSON body using the secret above. Send as x-webhook-signature header.",
+  "events": [
+    {
+      "eventId": "evt_sub_created_001",
+      "type": "subscription.created",
+      "createdAt": "2024-11-15T10:30:00Z",
+      "data": {
+        "userEmail": "alice@example.com",
+        "planName": "Pro Monthly",
+        "amount": 9.99,
+        "currency": "USD"
+      }
+    },
+    {
+      "eventId": "evt_sub_created_002",
+      "type": "subscription.created",
+      "createdAt": "2024-11-15T11:00:00Z",
+      "data": {
+        "userEmail": "bob@example.com",
+        "planName": "Annual Premium",
+        "amount": 79.99,
+        "currency": "USD"
+      }
+    },
+    {
+      "eventId": "evt_pay_failed_001",
+      "type": "payment.failed",
+      "createdAt": "2024-11-16T08:15:00Z",
+      "data": {
+        "userEmail": "alice@example.com",
+        "amount": 9.99,
+        "currency": "USD",
+        "reason": "insufficient_funds"
+      }
+    },
+    {
+      "eventId": "evt_sub_cancelled_001",
+      "type": "subscription.cancelled",
+      "createdAt": "2024-11-17T14:20:00Z",
+      "data": {
+        "userEmail": "bob@example.com",
+        "reason": "too_expensive"
+      }
+    },
+    {
+      "eventId": "evt_pay_refunded_001",
+      "type": "payment.refunded",
+      "createdAt": "2024-11-18T09:00:00Z",
+      "data": {
+        "userEmail": "bob@example.com",
+        "amount": 79.99,
+        "currency": "USD",
+        "reason": "customer_request"
+      }
+    },
+    {
+      "eventId": "evt_unknown_001",
+      "type": "invoice.generated",
+      "createdAt": "2024-11-18T09:30:00Z",
+      "data": {
+        "userEmail": "alice@example.com"
+      }
+    },
+    {
+      "eventId": "evt_sub_created_001",
+      "type": "subscription.created",
+      "createdAt": "2024-11-15T10:30:00Z",
+      "data": {
+        "userEmail": "alice@example.com",
+        "planName": "Pro Monthly",
+        "amount": 9.99,
+        "currency": "USD"
+      },
+      "_note": "DUPLICATE of the first event — same eventId. Your handler should treat this as a no-op."
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+[
+  {
+    "id": 1,
+    "title": "30-Day Strength Foundation",
+    "description": "Build a solid strength base with progressive overload. Perfect for beginners moving into intermediate training.",
+    "category": "Strength",
+    "days_count": 7,
+    "enrolled_count": 1243,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Assess Your Starting Point",
+        "video_url": "https://example.com/videos/str-1-1.mp4",
+        "exercise_description": "Today you'll establish your baseline. Perform each movement with bodyweight only: squats, push-ups, lunges, and planks. Record your max reps and hold times. This isn't about pushing limits — it's about understanding where you are so we can track real progress.",
+        "coach_tip": "Don't ego-lift on day one. Honest numbers today mean visible gains by week four."
+      },
+      {
+        "day_number": 2,
+        "title": "Squat Mechanics",
+        "video_url": "https://example.com/videos/str-1-2.mp4",
+        "exercise_description": "Focus entirely on squat form. Feet shoulder-width, toes slightly out. Descend until thighs are parallel. We'll do 5 sets of 8 with controlled tempo — 3 seconds down, 1 second pause, 2 seconds up.",
+        "coach_tip": "Film your last set from the side. Compare it to the demo. Small form fixes now prevent injuries later."
+      },
+      {
+        "day_number": 3,
+        "title": "Upper Body Push",
+        "video_url": "https://example.com/videos/str-1-3.mp4",
+        "exercise_description": "Push-up variations progressing from knees to full to decline. Shoulder press with dumbbells or household items. 4 sets of 10 for each movement. Rest 60 seconds between sets.",
+        "coach_tip": "If you can do more than 12 reps easily, increase resistance. The last 2 reps should feel genuinely challenging."
+      },
+      {
+        "day_number": 4,
+        "title": "Hinge & Pull Patterns",
+        "video_url": "https://example.com/videos/str-1-4.mp4",
+        "exercise_description": "Romanian deadlifts, bent-over rows, and face pulls. These posterior chain movements counterbalance all the pushing. 4 sets of 8 with slow eccentrics.",
+        "coach_tip": "Think about squeezing your shoulder blades together on every pull. The mind-muscle connection matters more than the weight."
+      },
+      {
+        "day_number": 5,
+        "title": "Core & Stability",
+        "video_url": "https://example.com/videos/str-1-5.mp4",
+        "exercise_description": "Dead bugs, pallof press, farmer's carries, and hollow holds. Core training isn't crunches — it's about resisting movement under load. 3 sets each, 30-45 seconds per set.",
+        "coach_tip": "If your lower back arches during dead bugs, you've gone too far. Reduce range of motion and own it."
+      },
+      {
+        "day_number": 6,
+        "title": "Full Body Integration",
+        "video_url": "https://example.com/videos/str-1-6.mp4",
+        "exercise_description": "Combine this week's movements into a circuit: squats, push-ups, rows, deadlifts, planks. 3 rounds, 10 reps each, minimal rest between exercises, 2 minutes between rounds.",
+        "coach_tip": "This is about flow, not failure. Keep form tight even when fatigue builds. Sloppy reps teach sloppy patterns."
+      },
+      {
+        "day_number": 7,
+        "title": "Active Recovery & Reassess",
+        "video_url": "https://example.com/videos/str-1-7.mp4",
+        "exercise_description": "Light stretching, foam rolling, and a gentle 20-minute walk. Then repeat the Day 1 assessment. Compare your numbers — most people see 10-15% improvement in just one week.",
+        "coach_tip": "Recovery is when your body actually gets stronger. Skipping rest days is not dedication — it's impatience."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Explosive Power Training",
+    "description": "Develop speed and power through plyometrics and Olympic lift progressions. For intermediate athletes.",
+    "category": "Strength",
+    "days_count": 5,
+    "enrolled_count": 876,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Jump Assessment",
+        "video_url": "",
+        "exercise_description": "Measure your standing broad jump, vertical jump, and 10-meter sprint. These baselines will track your power development over the program.",
+        "coach_tip": "Warm up thoroughly before any maximal effort. Cold muscles and explosive movements are a recipe for injury."
+      },
+      {
+        "day_number": 2,
+        "title": "Box Jumps & Depth Drops",
+        "video_url": "",
+        "exercise_description": "Start with low box jumps (12-16 inches). Focus on soft landings — balls of feet first, knees tracking over toes. Progress to depth drops from the box. 5 sets of 5 with full recovery between sets.",
+        "coach_tip": "Power training requires full rest between sets. This isn't cardio — 2-3 minutes between sets is appropriate."
+      },
+      {
+        "day_number": 3,
+        "title": "Medicine Ball Throws",
+        "video_url": "",
+        "exercise_description": "Overhead throws, chest passes, rotational throws, and slams. Each movement trains power in a different plane. 4 sets of 6 for each variation.",
+        "coach_tip": "Release the ball at peak velocity. Deceleration is wasted energy — throw like you mean it."
+      },
+      {
+        "day_number": 4,
+        "title": "Sprint Mechanics",
+        "video_url": "",
+        "exercise_description": "A-skips, B-skips, butt kicks at increasing intensity. Then 6x30m sprints at 85-90% effort with walk-back recovery.",
+        "coach_tip": "Sprinting is a skill, not just running fast. Focus on driving your knees forward and striking the ground under your center of mass."
+      },
+      {
+        "day_number": 5,
+        "title": "Power Complex",
+        "video_url": "",
+        "exercise_description": "Pair a strength move with an explosive move: squat + jump squat, bench press + plyometric push-up, deadlift + broad jump. 4 pairs, 5 reps each, 3 sets.",
+        "coach_tip": "The strength move activates the muscle fibers, and the explosive move teaches them to fire faster. This is called post-activation potentiation."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Morning Cardio Kickstart",
+    "description": "Wake up with 20-minute high-energy sessions designed for before work. No equipment needed.",
+    "category": "Cardio",
+    "days_count": 7,
+    "enrolled_count": 2105,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Jumping Jack Intervals",
+        "video_url": "",
+        "exercise_description": "Alternating 40 seconds of jumping jacks with 20 seconds of rest. 10 rounds. Simple, effective, and gets your heart rate up fast.",
+        "coach_tip": "Land softly on the balls of your feet. Your downstairs neighbors will thank you."
+      },
+      {
+        "day_number": 2,
+        "title": "Burpee Ladder",
+        "video_url": "",
+        "exercise_description": "1 burpee, rest 10 seconds. 2 burpees, rest 10 seconds. Continue up to 10, then back down to 1. Total: 100 burpees in about 18 minutes.",
+        "coach_tip": "If full burpees are too much, step back instead of jumping back. Same cardio benefit, less joint stress."
+      },
+      {
+        "day_number": 3,
+        "title": "Shadow Boxing",
+        "video_url": "",
+        "exercise_description": "3-minute rounds of shadow boxing with 1 minute rest. Jab, cross, hook, uppercut. Keep moving your feet. 5 rounds total.",
+        "coach_tip": "Don't just wave your arms. Rotate your hips with each punch — that's where the power comes from."
+      },
+      {
+        "day_number": 4,
+        "title": "High Knees & Mountain Climbers",
+        "video_url": "",
+        "exercise_description": "30 seconds high knees, 30 seconds mountain climbers, 30 seconds rest. 8 rounds. Focus on driving your knees as high and fast as possible.",
+        "coach_tip": "Pump your arms during high knees — it forces your legs to move faster. Arms lead, legs follow."
+      },
+      {
+        "day_number": 5,
+        "title": "Tabata Classic",
+        "video_url": "",
+        "exercise_description": "20 seconds max effort, 10 seconds rest, 8 rounds. Exercise: squat jumps. Then rest 2 minutes and repeat with push-ups. Total: 2 Tabata blocks.",
+        "coach_tip": "True Tabata should leave you on the floor. If you can talk during the work intervals, you're not going hard enough."
+      },
+      {
+        "day_number": 6,
+        "title": "Stair Repeats",
+        "video_url": "",
+        "exercise_description": "Find a staircase (even 1 flight works). Sprint up, walk down. Repeat for 15 minutes. If no stairs, do step-ups on a sturdy chair.",
+        "coach_tip": "Push off your entire foot, not just your toes. Engage your glutes on every step."
+      },
+      {
+        "day_number": 7,
+        "title": "Dance Cardio Freestyle",
+        "video_url": "",
+        "exercise_description": "Put on your favorite upbeat playlist and move for 20 minutes. No rules, no choreography. Just don't stop moving. Jump, twist, groove — whatever feels good.",
+        "coach_tip": "Cardio doesn't have to feel like punishment. If you're smiling, you'll come back tomorrow. That's the real win."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Couch to 5K Running Plan",
+    "description": "Go from zero running to completing 5 kilometers in 7 weeks. Walk-run intervals that build gradually.",
+    "category": "Cardio",
+    "days_count": 5,
+    "enrolled_count": 3420,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Walk-Run Intro",
+        "video_url": "",
+        "exercise_description": "Walk 5 minutes to warm up. Then alternate: run 60 seconds, walk 90 seconds. Repeat 8 times. Walk 5 minutes to cool down. Total: ~30 minutes.",
+        "coach_tip": "Your running pace should be conversational — if you can't say a full sentence, slow down."
+      },
+      {
+        "day_number": 2,
+        "title": "Building the Base",
+        "video_url": "",
+        "exercise_description": "Walk 5 minutes. Run 90 seconds, walk 60 seconds. Repeat 8 times. Cool down walk. Notice the shift — longer running, shorter walking.",
+        "coach_tip": "Focus on landing midfoot, not on your heels. It reduces impact on your knees significantly."
+      },
+      {
+        "day_number": 3,
+        "title": "First Sustained Run",
+        "video_url": "",
+        "exercise_description": "Walk 5 minutes. Run 3 minutes, walk 1 minute. Repeat 6 times. You're now running 18 minutes total. That's more than most people do in a week.",
+        "coach_tip": "Run slower than you think you should. The number one beginner mistake is starting too fast and burning out."
+      },
+      {
+        "day_number": 4,
+        "title": "The 10-Minute Block",
+        "video_url": "",
+        "exercise_description": "Walk 5 minutes. Run 10 minutes, walk 3 minutes, run 10 minutes. Cool down. This is a mental milestone — you can sustain effort for 10 minutes straight.",
+        "coach_tip": "When your brain says stop, your body usually has 40% left. Keep going. Trust the training."
+      },
+      {
+        "day_number": 5,
+        "title": "Non-Stop 20 Minutes",
+        "video_url": "",
+        "exercise_description": "Walk 5 minutes. Run 20 minutes without stopping. Any pace — just keep your feet moving. Walk 5 minutes. You just ran farther than 80% of adults did today.",
+        "coach_tip": "Don't look at your phone. Don't check the time. Just run. Put on a podcast or playlist and let the time pass."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Sunrise Yoga Flow",
+    "description": "Start your morning with gentle flows that build flexibility and set a calm tone for the day.",
+    "category": "Yoga",
+    "days_count": 7,
+    "enrolled_count": 1890,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Breath & Awareness",
+        "video_url": "",
+        "exercise_description": "5 minutes of seated breathing (inhale 4 counts, hold 4, exhale 6). Then gentle cat-cow stretches for 3 minutes. Finish with child's pose for 2 minutes. The goal today is simply to arrive on the mat.",
+        "coach_tip": "If your mind wanders during breathing, that's normal. Notice it, name it, and return to the count."
+      },
+      {
+        "day_number": 2,
+        "title": "Sun Salutation A",
+        "video_url": "",
+        "exercise_description": "Learn the 12-pose Sun Salutation A sequence. Practice it slowly 3 times with the video, then 3 times on your own. Focus on linking breath to movement — inhale up, exhale fold.",
+        "coach_tip": "Your heels don't need to touch the floor in downward dog. Bend your knees. Flexibility comes with consistency, not force."
+      },
+      {
+        "day_number": 3,
+        "title": "Standing Balance",
+        "video_url": "",
+        "exercise_description": "Tree pose, warrior III, and eagle pose. Hold each for 30 seconds per side, 3 rounds. Use a wall for support if needed — there's no shame in stability aids.",
+        "coach_tip": "Fix your gaze on a single point that isn't moving. Balance starts with your eyes, not your feet."
+      },
+      {
+        "day_number": 4,
+        "title": "Hip Openers",
+        "video_url": "",
+        "exercise_description": "Pigeon pose, lizard lunge, butterfly stretch, and happy baby. Hold each for 60-90 seconds. Breathe into the tightness — don't fight it.",
+        "coach_tip": "Tight hips affect everything: your back, your knees, even your sleep. This session might be the most important one this week."
+      },
+      {
+        "day_number": 5,
+        "title": "Gentle Backbends",
+        "video_url": "",
+        "exercise_description": "Cobra, sphinx, bridge pose, and supported fish pose. These counteract desk-sitting posture. 3 rounds of each, holding for 20-30 seconds.",
+        "coach_tip": "Backbends should open your chest, not compress your lower back. If you feel pinching, reduce the depth."
+      },
+      {
+        "day_number": 6,
+        "title": "Flow & Strength",
+        "video_url": "",
+        "exercise_description": "Combine everything into a 20-minute vinyasa flow. Sun salutations → warrior sequence → balance → hip openers → savasana. Move at your own pace.",
+        "coach_tip": "Yoga isn't about looking like the instructor. It's about feeling what your body needs today and responding honestly."
+      },
+      {
+        "day_number": 7,
+        "title": "Restorative & Meditation",
+        "video_url": "",
+        "exercise_description": "Supported child's pose (5 min), legs up the wall (5 min), reclined twist (3 min each side), savasana (5 min). Use pillows and blankets generously.",
+        "coach_tip": "This might feel like 'doing nothing.' It's not. Restorative yoga activates your parasympathetic nervous system — it's recovery at a cellular level."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Power Yoga for Athletes",
+    "description": "A challenging yoga program that builds strength, balance, and mobility for active people.",
+    "category": "Yoga",
+    "days_count": 5,
+    "enrolled_count": 945,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Warrior Strength Series",
+        "video_url": "",
+        "exercise_description": "Warrior I, II, and III held for 45 seconds each side. Chair pose for 60 seconds. Crescent lunge pulses. 3 full rounds. Your legs will burn — that's the point.",
+        "coach_tip": "Sink lower in your warriors. Most athletes go too shallow because they're used to moving, not holding."
+      },
+      {
+        "day_number": 2,
+        "title": "Arm Balance Prep",
+        "video_url": "",
+        "exercise_description": "Crow pose progressions, side plank variations, and dolphin pose. Work on shifting your weight forward over your hands. Even if you don't get airborne, the process builds incredible shoulder stability.",
+        "coach_tip": "Put a pillow in front of your face for crow pose attempts. Knowing you won't smash your nose makes you 50% braver."
+      },
+      {
+        "day_number": 3,
+        "title": "Deep Twists & Binds",
+        "video_url": "",
+        "exercise_description": "Revolved triangle, bound side angle, seated spinal twists. These wring out tension in your thoracic spine and challenge your balance under rotation.",
+        "coach_tip": "Twist from your mid-back, not your neck. Your head should follow your spine, not lead it."
+      },
+      {
+        "day_number": 4,
+        "title": "Core Ignite",
+        "video_url": "",
+        "exercise_description": "Boat pose holds, bicycle crunches in slow motion, plank to downward dog taps, and bird-dog. Controlled movements — no momentum, no shortcuts. 4 sets of 30 seconds each.",
+        "coach_tip": "If your hip flexors are doing all the work in boat pose, bend your knees more. Feel it in your abs, not your quads."
+      },
+      {
+        "day_number": 5,
+        "title": "Full Power Flow",
+        "video_url": "",
+        "exercise_description": "A continuous 30-minute flow combining all elements from this week. Sun salutations, warrior series, arm balances, twists, core work, finishing with hip openers and savasana.",
+        "coach_tip": "Set an intention before you start. Not a goal — an intention. Something like 'I move with purpose' or 'I earn my rest.'"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "7-Minute HIIT Blitz",
+    "description": "Maximum results in minimum time. Scientific 7-minute workouts that torch calories.",
+    "category": "HIIT",
+    "days_count": 7,
+    "enrolled_count": 4210,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Classic 7-Minute Circuit",
+        "video_url": "",
+        "exercise_description": "12 exercises, 30 seconds each, 10 seconds rest: jumping jacks, wall sit, push-ups, crunches, step-ups, squats, tricep dips, plank, high knees, lunges, push-up rotation, side plank.",
+        "coach_tip": "30 seconds feels short until you're in it. Give each exercise everything — you only have 7 minutes."
+      },
+      {
+        "day_number": 2,
+        "title": "Lower Body Burn",
+        "video_url": "",
+        "exercise_description": "Squat jumps, wall sits, reverse lunges, calf raises, sumo squats, single-leg deadlifts, lateral lunges, glute bridges, jump lunges, curtsy lunges, squat holds, star jumps.",
+        "coach_tip": "Your quads will scream by exercise 4. That's the lactic acid. Push through it — it clears within 30 seconds of stopping."
+      },
+      {
+        "day_number": 3,
+        "title": "Upper Body Focus",
+        "video_url": "",
+        "exercise_description": "Push-ups, tricep dips, plank shoulder taps, diamond push-ups, pike push-ups, arm circles, push-up hold, superman, inchworms, plank up-downs, commando crawl, T push-ups.",
+        "coach_tip": "No equipment doesn't mean no challenge. Slow the tempo down if the movements feel too easy."
+      },
+      {
+        "day_number": 4,
+        "title": "Core Crusher",
+        "video_url": "",
+        "exercise_description": "Crunches, bicycle crunches, mountain climbers, plank, leg raises, Russian twists, dead bugs, flutter kicks, sit-ups, plank jacks, V-ups, hollow hold.",
+        "coach_tip": "Press your lower back into the floor during every supine exercise. If it arches, your hip flexors are taking over."
+      },
+      {
+        "day_number": 5,
+        "title": "Cardio Explosion",
+        "video_url": "",
+        "exercise_description": "Burpees, tuck jumps, speed skaters, high knees, jumping lunges, star jumps, mountain climbers, lateral hops, squat jumps, burpee broad jumps, sprinter starts, power jacks.",
+        "coach_tip": "Land quietly. Loud landings mean high impact forces on your joints. Absorb each landing like a cat."
+      },
+      {
+        "day_number": 6,
+        "title": "Tabata Finisher",
+        "video_url": "",
+        "exercise_description": "Pick your 3 hardest exercises from this week. Tabata each one: 20 seconds max effort, 10 seconds rest, 8 rounds. Rest 1 minute between exercises.",
+        "coach_tip": "Rate your effort honestly: 1-10. If you're not hitting 8+ during work intervals, you're leaving results on the table."
+      },
+      {
+        "day_number": 7,
+        "title": "The Challenge",
+        "video_url": "",
+        "exercise_description": "Repeat the Day 1 circuit. But this time, count your reps for each exercise. Write them down. Next week, beat those numbers.",
+        "coach_tip": "Progress isn't always visible in the mirror. But it's always visible in the numbers. Track everything."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Lunch Break HIIT",
+    "description": "30-minute sessions designed for your lunch break. Shower-friendly intensity that won't leave you drenched.",
+    "category": "HIIT",
+    "days_count": 5,
+    "enrolled_count": 1567,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Low-Sweat Strength Intervals",
+        "video_url": "",
+        "exercise_description": "Tempo squats (4 seconds down, 2 up), push-up holds, isometric lunges, wall sits. 40 seconds work, 20 rest, 6 exercises, 3 rounds. Challenging but controlled — you won't soak through your shirt.",
+        "coach_tip": "Isometric and slow-tempo work builds strength without the sweating that comes from jumping and bouncing."
+      },
+      {
+        "day_number": 2,
+        "title": "Desk Mobility Circuit",
+        "video_url": "",
+        "exercise_description": "Seated spinal twists, standing hip circles, doorframe chest stretches, wrist extensions, neck rolls, and ankle alphabet. 30 seconds each, 3 rounds. Counteract 4 hours of sitting.",
+        "coach_tip": "Set a phone alarm every 90 minutes at work. Stand up and do 3 of these movements. Your back will feel 10 years younger."
+      },
+      {
+        "day_number": 3,
+        "title": "Controlled Cardio",
+        "video_url": "",
+        "exercise_description": "Marching in place, step-touches, gentle high knees, bodyweight squats, standing oblique crunches. No jumping, no floor work. 12 minutes of continuous movement at 60-70% effort.",
+        "coach_tip": "This is 'zone 2' cardio — you should be able to talk in full sentences. It's the intensity where your body burns fat most efficiently."
+      },
+      {
+        "day_number": 4,
+        "title": "Band Resistance Circuit",
+        "video_url": "",
+        "exercise_description": "If you have a resistance band: banded pull-aparts, banded squats, banded bicep curls, banded rows. No band? Use a filled water bottle. 3 sets of 15 for each.",
+        "coach_tip": "Keep a resistance band in your desk drawer. It's the most versatile, portable piece of gym equipment that exists."
+      },
+      {
+        "day_number": 5,
+        "title": "Mindful Movement",
+        "video_url": "",
+        "exercise_description": "Slow-motion sun salutations, deep breathing squats, balance work with eyes closed, and a 3-minute body scan meditation. The goal is to return to your afternoon with more focus than caffeine provides.",
+        "coach_tip": "This session is about mental recovery as much as physical. Don't skip it because it seems 'too easy.' Easy and effective aren't opposites."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Total Body Flexibility",
+    "description": "Systematic stretching program that targets every major muscle group. Improve range of motion in 3 weeks.",
+    "category": "Flexibility",
+    "days_count": 7,
+    "enrolled_count": 1340,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Flexibility Assessment",
+        "video_url": "",
+        "exercise_description": "Test your current flexibility: toe touch, seated straddle, shoulder reach-behind, quad stretch, hip flexor lunge. Take photos or measure distances. No judgment — just data.",
+        "coach_tip": "Flexibility varies wildly day to day based on stress, sleep, and hydration. Test at the same time of day for consistency."
+      },
+      {
+        "day_number": 2,
+        "title": "Hamstrings & Calves",
+        "video_url": "",
+        "exercise_description": "Standing forward fold (2 min), seated pike stretch (2 min), single-leg hamstring stretch (90 sec each), standing calf stretch (60 sec each), downward dog pedaling (2 min).",
+        "coach_tip": "Never bounce in a stretch. Hold steady, breathe out, and let gravity do the work. Your muscles release, they don't get forced open."
+      },
+      {
+        "day_number": 3,
+        "title": "Hips & Glutes",
+        "video_url": "",
+        "exercise_description": "Pigeon pose (2 min each side), figure-4 stretch (90 sec each), deep squat hold (2 min), frog stretch (2 min), 90/90 hip switches (10 each direction).",
+        "coach_tip": "If pigeon pose causes knee pain, switch to figure-4 on your back. Same stretch, zero knee stress."
+      },
+      {
+        "day_number": 4,
+        "title": "Shoulders & Chest",
+        "video_url": "",
+        "exercise_description": "Doorframe chest stretch (60 sec each), cross-body shoulder stretch (60 sec each), thread-the-needle (90 sec each), overhead tricep stretch, behind-the-back clasp.",
+        "coach_tip": "Most people stretch what's already flexible and ignore what's tight. If a stretch feels impossible, that's exactly the one you need most."
+      },
+      {
+        "day_number": 5,
+        "title": "Spine & Thoracic",
+        "video_url": "",
+        "exercise_description": "Cat-cow (2 min), seated spinal twist (90 sec each), foam roller thoracic extension (2 min), child's pose with side reach (60 sec each), supine twist (2 min each).",
+        "coach_tip": "Your thoracic spine (mid-back) is designed to rotate. If it's stiff, your lower back compensates — and that's where pain lives."
+      },
+      {
+        "day_number": 6,
+        "title": "Full Body Flow",
+        "video_url": "",
+        "exercise_description": "Combine all stretches into a 25-minute flow. Move from standing to floor: forward fold → lunges → pigeon → seated stretches → twists → supine stretches → savasana.",
+        "coach_tip": "Hold each stretch just past the point of mild discomfort. If you're grimacing, back off. Flexibility grows at the edge, not past it."
+      },
+      {
+        "day_number": 7,
+        "title": "Reassess & Compare",
+        "video_url": "",
+        "exercise_description": "Repeat the Day 1 assessment. Compare photos and measurements. Most people gain 1-2 inches on their toe touch in just one week of consistent stretching.",
+        "coach_tip": "Flexibility isn't a talent — it's a practice. The people who can do the splits just stretched more often than you. That's literally it."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Office Worker Stretch Routine",
+    "description": "Targeted stretches for desk workers. Undo the damage of 8 hours of sitting in just 15 minutes.",
+    "category": "Flexibility",
+    "days_count": 5,
+    "enrolled_count": 2890,
+    "cover_image_url": "",
+    "days": [
+      {
+        "day_number": 1,
+        "title": "Neck & Traps Release",
+        "video_url": "",
+        "exercise_description": "Gentle neck tilts (ear to shoulder, 30 sec each), chin tucks (10 reps), upper trap stretch with hand behind back (45 sec each), levator scapulae stretch (45 sec each).",
+        "coach_tip": "If you carry stress in your shoulders, this routine alone can reduce your tension headaches by half. Do it daily."
+      },
+      {
+        "day_number": 2,
+        "title": "Wrists & Forearms",
+        "video_url": "",
+        "exercise_description": "Wrist flexor stretch (30 sec each), wrist extensor stretch (30 sec each), prayer stretch, reverse prayer, finger spreads, and wrist circles. 3 rounds of each.",
+        "coach_tip": "If you type all day and never stretch your wrists, you're on a slow path to carpal tunnel. This is preventive medicine."
+      },
+      {
+        "day_number": 3,
+        "title": "Lower Back & Hip Flexors",
+        "video_url": "",
+        "exercise_description": "Kneeling hip flexor stretch (90 sec each), supine knee-to-chest (60 sec each), pelvic tilts (15 reps), standing quad stretch (45 sec each), psoas march (10 each).",
+        "coach_tip": "Your hip flexors shorten every minute you sit. After 8 hours, they're pulling your pelvis forward and your lower back into pain."
+      },
+      {
+        "day_number": 4,
+        "title": "Chest & Shoulders (Posture Fix)",
+        "video_url": "",
+        "exercise_description": "Wall angels (10 slow reps), doorframe stretch (60 sec), band pull-aparts or towel stretch (15 reps), prone Y-T-W raises (8 each), chin tuck against wall (10 reps).",
+        "coach_tip": "Forward head posture adds 10 pounds of perceived weight to your neck for every inch forward. Wall angels teach your spine where 'straight' actually is."
+      },
+      {
+        "day_number": 5,
+        "title": "Full Desk Worker Reset",
+        "video_url": "",
+        "exercise_description": "Combine the best stretch from each day into a single 15-minute routine: neck release → wrist stretches → hip flexor stretch → chest opener → lower back decompression → 2 min savasana.",
+        "coach_tip": "Bookmark this routine. Do it every workday at 3pm. In two weeks, you'll notice less stiffness, better posture, and more energy in the afternoon."
+      }
+    ]
+  }
+]
