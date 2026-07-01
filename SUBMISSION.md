@@ -2,9 +2,9 @@
 
 ## Tasks Completed
 
-I completed **Tasks 1, 2, and 3** (Backend API, Frontend catalog, Cache debug).
+I completed Tasks 1, 2, and 3 (Backend API, Frontend catalog & day viewer, and Cache debugging).
 
-Task 4 (payment webhooks) was left out of scope to stay within the suggested time budget and because the first three tasks form a coherent vertical slice: API → caching → UI with progress tracking.
+I left Task 4 (payment webhooks) out of scope to stay within the suggested time budget. The first three tasks form a complete vertical slice covering the backend API, caching strategy, and frontend experience.
 
 ---
 
@@ -22,10 +22,11 @@ Task 4 (payment webhooks) was left out of scope to stay within the suggested tim
 
 **Auth.** `Authorization: Bearer <token>` is validated through `authenticateRequest` in `shared/lib/firebase-auth.ts` (moved from the template path for FSD-style layout).
 
+**CMS adapter.** The CMS integration was isolated behind a small adapter to keep the loading strategy independent from the underlying CMS implementation.
+
 ### Trade-offs
 
 - Production code lives in `entities/program/lib/` rather than a single file. More files, but each concern (cache, CMS, local loader, revalidation) is testable in isolation.
-- `cms-sdk.ts` replaces the original `mock-cms.ts` filename; behavior is the same (200–500 ms delay, ~20% failure rate).
 - Response shape uses `{ ok: true, programs: [...] }` instead of a bare array — makes error handling consistent on the frontend.
 
 ---
@@ -40,9 +41,11 @@ Task 4 (payment webhooks) was left out of scope to stay within the suggested tim
 - Error states: API failures show `ErrorMessage`, `error.tsx` boundary with retry, empty states for no results.
 - `AuthTokenTestControls` on the catalog page to manually test valid / invalid / missing tokens.
 
+The catalog supports search and category filtering, while the day viewer keeps the current day synchronized with the URL so it survives refreshes and deep links.
+
 ### Trade-offs
 
-- Frontend fetches from `GET /api/programs` rather than importing JSON directly. This exercises the full stack and respects auth, but the UI depends on the API being up.
+- The frontend consumes the public API instead of importing JSON directly, exercising the same authentication, caching, and response flow as a real client.
 - Progress is saved only after enrollment; day navigation before enrolling updates the URL (`?day=`) but not storage.
 - Locale support exists on the API (`?locale=es`) but there is no locale switcher in the UI yet.
 - Program detail page uses the server-side SSR token; test cookie controls are only on the catalog page.
@@ -62,43 +65,43 @@ The template in `src/lib/program-cache-buggy.ts` had five intentional bugs. Belo
 
 ### Bug 1 — Wrong field name in `mapDay`
 
-**What was wrong:** Mapped `video: raw.video_url` instead of `videoUrl`.
+**Problem:** Mapped `video: raw.video_url` instead of `videoUrl`.
 
-**What it broke:** `ProgramDay` expects `videoUrl`. Videos were always `undefined` in the API response even when CMS/local JSON had `video_url`.
+**Impact:** Videos were always `undefined` in the API response even when CMS/local JSON had `video_url`.
 
-**Fix:** Map to `videoUrl: raw.video_url ?? ''`. Matches the contract in `entities/program/model/types.ts`.
+**Fix:** Map to `videoUrl: raw.video_url ?? ''`.
 
 ### Bug 2 — Cache deleted at fresh TTL instead of going stale
 
-**What was wrong:** `getCacheEntry` removed the entry when age exceeded 5 minutes, forcing every request to wait for CMS.
+**Problem:** `getCacheEntry` removed the entry when age exceeded 5 minutes, forcing every request to wait for CMS.
 
-**What it broke:** Defeated the purpose of caching on a hot path. Users felt CMS latency on every request after 5 minutes.
+**Impact:** Users felt CMS latency on every request after 5 minutes.
 
 **Fix:** Keep the entry until 60 minutes (stale TTL). Return `isStale: true` after 5 minutes. Serve stale data immediately and call `revalidate()` in the background.
 
 ### Bug 3 — Infinite recursion on English fallback
 
-**What was wrong:** When all loaders failed for `locale === 'en'`, the code called `return loadPrograms('en')` again.
+**Problem:** When all loaders failed for `locale === 'en'`, the code called `return loadPrograms('en')` again.
 
-**What it broke:** Stack overflow / infinite loop if `programs-en.json` was missing or corrupt.
+**Impact:** Stack overflow if `programs-en.json` was missing or corrupt.
 
 **Fix:** Throw `new Error(...)` when every source is exhausted. Fail fast with a clear 503 from the route handler.
 
 ### Bug 4 — English fallback re-entered CMS
 
-**What was wrong:** Non-English locale fallback called `loadPrograms('en')`, which tried CMS again.
+**Problem:** Non-English locale fallback called `loadPrograms('en')`, which tried CMS again.
 
-**What it broke:** Extra latency and another ~20% chance of failure when a simple local file read would work.
+**Impact:** Extra latency and another ~20% chance of failure when a simple local file read would work.
 
 **Fix:** Call `loadLocal('en')` directly — skip CMS for the known-safe fallback.
 
-### Bug 5 — No in-flight deduplication
+### Bug 5 — Missing in-flight deduplication
 
-**What was wrong:** Every concurrent request spawned its own CMS fetch.
+**Problem:** Concurrent requests triggered multiple CMS fetches for the same locale.
 
-**What it broke:** Under burst traffic, multiple slow CMS calls ran in parallel for the same locale, wasting resources and increasing failure surface.
+**Impact:** Unnecessary load and thundering herd under burst traffic.
 
-**Fix:** `dedupe(locale, fn)` stores the in-flight promise in a `Map` and shares it across callers. Cleared in `.finally()`.
+**Fix:** Share a single in-flight promise per locale via `dedupe(locale, fn)`.
 
 ### Maintainability notes
 
@@ -113,13 +116,19 @@ The template in `src/lib/program-cache-buggy.ts` had five intentional bugs. Belo
 npm test
 ```
 
-Covers auth on the route handler, cache TTL behavior, CMS fallback chain, English fallback without double CMS call, stale-while-revalidate, mapper output shape, and progress storage validation.
+Tests cover authentication, cache expiration, fallback behavior, stale-while-revalidate, CMS mapping, and client-side progress persistence.
 
 ---
 
 ## What I'd improve with more time
 
-1. Fix locale/auth consistency across all program pages.
+1. Refine the shared data-fetching layer to eliminate the remaining duplication around authentication and locale handling across program pages.
 2. Add integration tests that hit the real route without mocks.
 3. Structured logging and metrics for cache hit/miss and CMS failure rates.
 4. Task 4 — webhook signature verification and subscription state machine.
+
+---
+
+## Architecture
+
+I kept the architecture intentionally lightweight. The project is organized around the program entity, separating API access, caching, CMS integration, persistence, and UI without introducing additional layers such as repositories or use cases. My goal was to keep responsibilities clear while avoiding unnecessary abstraction for a project of this size.

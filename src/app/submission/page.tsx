@@ -19,12 +19,13 @@ export default function SubmissionPage() {
 
       <h2 style={h2}>Tasks Completed</h2>
       <p style={p}>
-        I completed <strong>Tasks 1, 2, and 3</strong> (Backend API, Frontend catalog, Cache debug).
+        I completed Tasks 1, 2, and 3 (Backend API, Frontend catalog &amp; day viewer, and Cache
+        debugging).
       </p>
       <p style={p}>
-        Task 4 (payment webhooks) was left out of scope to stay within the suggested time budget
-        and because the first three tasks form a coherent vertical slice: API → caching → UI with
-        progress tracking.
+        I left Task 4 (payment webhooks) out of scope to stay within the suggested time budget. The
+        first three tasks form a complete vertical slice covering the backend API, caching strategy,
+        and frontend experience.
       </p>
 
       <hr style={hr} />
@@ -56,11 +57,14 @@ export default function SubmissionPage() {
         validated through <code style={code}>authenticateRequest</code> in{' '}
         <code style={code}>shared/lib/firebase-auth.ts</code>.
       </p>
+      <p style={p}>
+        <strong>CMS adapter.</strong> The CMS integration was isolated behind a small adapter to keep
+        the loading strategy independent from the underlying CMS implementation.
+      </p>
 
       <h3 style={h3}>Trade-offs</h3>
       <ul style={ul}>
         <li>Production code lives in <code style={code}>entities/program/lib/</code> rather than a single file.</li>
-        <li><code style={code}>cms-sdk.ts</code> replaces the original <code style={code}>mock-cms.ts</code> filename.</li>
         <li>Response shape uses <code style={code}>{'{ ok: true, programs: [...] }'}</code> for consistent error handling.</li>
       </ul>
 
@@ -75,10 +79,17 @@ export default function SubmissionPage() {
         <li>Enrollment and current day persist in <code style={code}>localStorage</code> and survive reload.</li>
         <li>Error states, empty states, and auth token test controls on the catalog page.</li>
       </ul>
+      <p style={p}>
+        The catalog supports search and category filtering, while the day viewer keeps the current day
+        synchronized with the URL so it survives refreshes and deep links.
+      </p>
 
       <h3 style={h3}>Trade-offs</h3>
       <ul style={ul}>
-        <li>Frontend fetches from <code style={code}>GET /api/programs</code> rather than importing JSON directly.</li>
+        <li>
+          The frontend consumes the public API instead of importing JSON directly, exercising the same
+          authentication, caching, and response flow as a real client.
+        </li>
         <li>Progress is saved only after enrollment.</li>
         <li>Locale support exists on the API (<code style={code}>?locale=es</code>) but no locale switcher in the UI yet.</li>
       </ul>
@@ -100,47 +111,60 @@ export default function SubmissionPage() {
       </p>
 
       <h3 style={h3}>Bug 1 — Wrong field name in mapDay</h3>
-      <p style={p}><strong>What was wrong:</strong> Mapped <code style={code}>video</code> instead of <code style={code}>videoUrl</code>.</p>
-      <p style={p}><strong>What it broke:</strong> Videos were always undefined in the API response.</p>
+      <p style={p}><strong>Problem:</strong> Mapped <code style={code}>video</code> instead of <code style={code}>videoUrl</code>.</p>
+      <p style={p}><strong>Impact:</strong> Videos were always undefined in the API response.</p>
       <p style={p}><strong>Fix:</strong> Map to <code style={code}>videoUrl: raw.video_url ?? ''</code>.</p>
 
       <h3 style={h3}>Bug 2 — Cache deleted at fresh TTL</h3>
-      <p style={p}><strong>What was wrong:</strong> Entry removed after 5 minutes, forcing every request to wait for CMS.</p>
-      <p style={p}><strong>What it broke:</strong> Users felt CMS latency on every request after 5 minutes.</p>
+      <p style={p}><strong>Problem:</strong> Entry removed after 5 minutes, forcing every request to wait for CMS.</p>
+      <p style={p}><strong>Impact:</strong> Users felt CMS latency on every request after 5 minutes.</p>
       <p style={p}><strong>Fix:</strong> Stale-while-revalidate — serve stale data, refresh in background.</p>
 
       <h3 style={h3}>Bug 3 — Infinite recursion on English fallback</h3>
-      <p style={p}><strong>What was wrong:</strong> <code style={code}>return loadPrograms('en')</code> when locale was already en.</p>
-      <p style={p}><strong>What it broke:</strong> Stack overflow if <code style={code}>programs-en.json</code> was missing.</p>
+      <p style={p}><strong>Problem:</strong> <code style={code}>return loadPrograms('en')</code> when locale was already en.</p>
+      <p style={p}><strong>Impact:</strong> Stack overflow if <code style={code}>programs-en.json</code> was missing.</p>
       <p style={p}><strong>Fix:</strong> Throw an error when every source is exhausted.</p>
 
       <h3 style={h3}>Bug 4 — English fallback re-entered CMS</h3>
-      <p style={p}><strong>What was wrong:</strong> Fallback called <code style={code}>loadPrograms('en')</code>, hitting CMS again.</p>
-      <p style={p}><strong>What it broke:</strong> Extra latency and another chance of CMS failure.</p>
+      <p style={p}><strong>Problem:</strong> Fallback called <code style={code}>loadPrograms('en')</code>, hitting CMS again.</p>
+      <p style={p}><strong>Impact:</strong> Extra latency and another chance of CMS failure.</p>
       <p style={p}><strong>Fix:</strong> Call <code style={code}>loadLocal('en')</code> directly.</p>
 
-      <h3 style={h3}>Bug 5 — No in-flight deduplication</h3>
-      <p style={p}><strong>What was wrong:</strong> Every concurrent request spawned its own CMS fetch.</p>
-      <p style={p}><strong>What it broke:</strong> Thundering herd under burst traffic.</p>
-      <p style={p}><strong>Fix:</strong> <code style={code}>dedupe(locale, fn)</code> shares one in-flight promise per locale.</p>
+      <h3 style={h3}>Bug 5 — Missing in-flight deduplication</h3>
+      <p style={p}><strong>Problem:</strong> Concurrent requests triggered multiple CMS fetches for the same locale.</p>
+      <p style={p}><strong>Impact:</strong> Unnecessary load and thundering herd under burst traffic.</p>
+      <p style={p}><strong>Fix:</strong> Share a single in-flight promise per locale via <code style={code}>dedupe(locale, fn)</code>.</p>
 
       <hr style={hr} />
 
       <h2 style={h2}>Testing</h2>
       <p style={p}>
-        Run <code style={code}>npm test</code> — covers auth, cache TTL, fallback chain,
-        stale-while-revalidate, mapper shape, and progress storage.
+        Run <code style={code}>npm test</code> — tests cover authentication, cache expiration, fallback
+        behavior, stale-while-revalidate, CMS mapping, and client-side progress persistence.
       </p>
 
       <hr style={hr} />
 
       <h2 style={h2}>What I&apos;d improve with more time</h2>
       <ol style={{ ...ul, listStyle: 'decimal' }}>
-        <li>Fix locale/auth consistency across all program pages.</li>
+        <li>
+          Refine the shared data-fetching layer to eliminate the remaining duplication around
+          authentication and locale handling across program pages.
+        </li>
         <li>Add integration tests that hit the real route without mocks.</li>
         <li>Structured logging and metrics for cache hit/miss and CMS failure rates.</li>
         <li>Task 4 — webhook signature verification and subscription state machine.</li>
       </ol>
+
+      <hr style={hr} />
+
+      <h2 style={h2}>Architecture</h2>
+      <p style={p}>
+        I kept the architecture intentionally lightweight. The project is organized around the program
+        entity, separating API access, caching, CMS integration, persistence, and UI without introducing
+        additional layers such as repositories or use cases. My goal was to keep responsibilities clear
+        while avoiding unnecessary abstraction for a project of this size.
+      </p>
     </main>
   );
 }
