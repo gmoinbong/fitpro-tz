@@ -15,17 +15,23 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
     return (
       <main>
         <h1>Programs</h1>
-        <p>
-          {result.status === 401
-            ? 'Unauthorized. Send Authorization: Bearer <token> to access the catalog.'
-            : result.error}
-        </p>
+        <p>{result.error}</p>
+      </main>
+    );
+  }
+
+  if (result.programs.length === 0) {
+    return (
+      <main>
+        <h1>Programs</h1>
+        <p>No programs available</p>
       </main>
     );
   }
 
   return (
     <main>
+      <h1>Programs</h1>
       <ul>
         {result.programs.map((program) => (
           <li key={program.id}>{program.title}</li>
