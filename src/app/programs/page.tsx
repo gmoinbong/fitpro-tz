@@ -1,15 +1,13 @@
-import type { Program } from '@/entities/program/model';
-import { resolveLocale } from '@/shared/lib';
+import Link from 'next/link';
+import { ProgramCatalog, ProgramsResponse } from '@/entities/program';
+import { EmptyState, ErrorMessage } from '@/shared/ui';
+import { getServerAuthToken, PAGE_STYLE, resolveLocale } from '@/shared/lib';
 
 type PageProps = {
   searchParams: {
     locale?: string;
   };
 };
-
-type ProgramsResponse =
-  | { ok: true; programs: Program[] }
-  | { ok: false; error: string };
 
 export default async function ProgramsPage({ searchParams }: PageProps) {
   const locale = resolveLocale(searchParams.locale);
@@ -18,8 +16,9 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
     `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/programs?locale=${locale}`,
     {
       cache: 'no-store',
-      headers: {
-        Authorization: `Bearer ${process.env.PROGRAMS_SSR_TOKEN ?? 'dev-ssr-token'}`,
+      headers: { Authorization:
+        //  `        Bearer ${getServerAuthToken()}`
+       
       },
     },
   );
@@ -27,26 +26,35 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
   const result = (await res.json()) as ProgramsResponse;
 
   if (!res.ok || !result.ok) {
+    const message =
+      res.status === 401
+        ? 'Unauthorized. Check your auth token.'
+        : 'error' in result
+          ? result.error
+          : 'Failed to load programs';
+
     return (
-      <main>
-        <h1>Programs</h1>
-        <p>{'error' in result ? result.error : 'Failed to load programs'}</p>
+      <main style={PAGE_STYLE}>
+        <h1 style={{ margin: '0 0 16px', fontSize: 28 }}>Programs</h1>
+        <ErrorMessage message={message} />
       </main>
     );
   }
 
   return (
-    <main>
-      <h1>Programs</h1>
+    <main style={PAGE_STYLE}>
+      <Link href="/" style={{ fontSize: 14, color: '#2563eb', textDecoration: 'none' }}>
+        ← Home
+      </Link>
+      <h1 style={{ margin: '16px 0 8px', fontSize: 28 }}>Programs</h1>
+      <p style={{ margin: '0 0 24px', color: '#666' }}>
+        Browse workout programs and track your progress.
+      </p>
 
       {result.programs.length === 0 ? (
-        <p>No programs available</p>
+        <EmptyState message="No programs available." />
       ) : (
-        <ul>
-          {result.programs.map((program) => (
-            <li key={program.id}>{program.title}</li>
-          ))}
-        </ul>
+        <ProgramCatalog programs={result.programs} />
       )}
     </main>
   );

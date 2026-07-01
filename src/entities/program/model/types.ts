@@ -16,3 +16,7 @@ export interface ProgramDay {
   exerciseDescription: string;
   coachTip: string;
 }
+
+export type ProgramsResponse =
+  | { ok: true; programs: Program[] }
+  | { ok: false; error: string };
