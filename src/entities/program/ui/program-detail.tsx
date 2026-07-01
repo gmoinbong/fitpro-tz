@@ -5,11 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Program } from '@/entities/program/model';
 import type { ProgramEnrollment } from '@/entities/program/model/progress';
-import {
-  enroll,
-  getEnrollment,
-  setCurrentDay,
-} from '@/entities/program/lib/progress-storage';
+import { enroll, getEnrollment, setCurrentDay } from '@/entities/program';
 import { DayNav } from './day-nav';
 import { DayViewer } from './day-viewer';
 import { EnrollButton } from './enroll-button';

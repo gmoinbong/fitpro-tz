@@ -1,4 +1,4 @@
-import { fetchProgramsFromCms } from './cms-mock';
+import { fetchProgramsFromCms } from './cms-sdk';
 import { mapProgramsFromCms } from './mapper';
 import type { SupportedLocale } from '@/shared/lib';
 

@@ -1,5 +1,5 @@
+import { loadFromCms } from '../cms';
 import { setCachedPrograms } from './cache';
-import { loadFromCms } from './cms-client';
 import { dedupe } from './inflight';
 import type { SupportedLocale } from '@/shared/lib';
 

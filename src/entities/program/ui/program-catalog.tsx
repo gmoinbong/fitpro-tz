@@ -5,10 +5,10 @@ import type { Program } from '@/entities/program/model';
 import type { ProgramEnrollment } from '@/entities/program/model/progress';
 import {
   filterPrograms,
+  loadProgress,
   PROGRAM_CATEGORIES,
   type ProgramCategory,
-} from '@/entities/program/lib/filter-programs';
-import { loadProgress } from '@/entities/program/lib/progress-storage';
+} from '@/entities/program';
 import { EmptyState } from '@/shared/ui';
 import { Input } from '@/shared/ui';
 import { ProgramCard } from './program-card';

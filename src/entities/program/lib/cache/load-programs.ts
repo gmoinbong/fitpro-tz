@@ -1,7 +1,6 @@
+import { loadFromCms, loadLocal } from '../cms';
 import { getCacheEntry, setCachedPrograms } from './cache';
-import { loadFromCms } from './cms-client';
 import { dedupe } from './inflight';
-import { loadLocal } from './local-loader';
 import { revalidate } from './revalidate';
 import type { Program } from '@/entities/program/model';
 import type { SupportedLocale } from '@/shared/lib';
